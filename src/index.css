@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens dari file Figma "codeblock 2.0".
+ * Setiap token otomatis jadi utility class, contoh:
+ *   --color-brand  -> bg-brand, text-brand, border-brand
+ *   --text-hero    -> text-hero
+ *   --shadow-card  -> shadow-card
+ */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-navy-950: #000c23;
+  --color-navy-900: #010d24;
+  --color-navy-800: #010d2b;
+  --color-brand: #0434fe;
+  --color-brand-ink: #0435fe;
+  --color-pill: #d9d9d9;
+
+  /* Jarak kiri-kanan halaman: px-gutter */
+  --spacing-gutter: clamp(20px, 4.5vw, 65px);
+
+  /* Breakpoint disesuaikan dengan tata letak desain (mobile first) */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 45rem;
+  --breakpoint-lg: 56.25rem;
+  --breakpoint-xl: 62.5rem;
+
+  /* Ukuran teks fluid (mengecil di layar kecil, maksimum sesuai Figma) */
+  --text-hero: clamp(44px, 6.5vw, 96px);
+  --text-hero--line-height: 1.2;
+  --text-h2: clamp(28px, 2.8vw, 40px);
+  --text-h2--line-height: 1.2;
+  --text-process: clamp(26px, 2.5vw, 36px);
+  --text-process--line-height: 1.2;
+  --text-quote: clamp(30px, 3.5vw, 50px);
+  --text-quote--line-height: 1.2;
+  --text-stat: clamp(30px, 2.8vw, 40px);
+  --text-stat--line-height: 1.2;
+  --text-lead: clamp(16px, 1.4vw, 20px);
+  --text-lead--line-height: 1.45;
+  --text-nav: clamp(16px, 1.65vw, 18px);
+  --text-nav--line-height: 1.5;
+  --text-card-title: clamp(20px, 1.7vw, 24px);
+  --text-card-title--line-height: 1.25;
+  --text-service: clamp(17px, 1.65vw, 24px);
+  --text-service--line-height: 1.25;
+  --text-body: clamp(16px, 1.25vw, 18px);
+  --text-body--line-height: 1.4;
+  --text-feature: clamp(14px, 1.25vw, 18px);
+  --text-feature--line-height: 1.2;
+  --text-filter: clamp(15px, 1.4vw, 20px);
+  --text-filter--line-height: 1.5;
+
+  --shadow-card: 0 4px 4px rgb(0 0 0 / 0.5);
+  --shadow-soft: 0 4px 4px rgb(0 0 0 / 0.25);
+  --shadow-lift: 0 8px 12px rgb(0 0 0 / 0.25);
+}
+
+/* Hanya untuk hal yang tidak bisa dijadikan utility di elemen tertentu */
+@layer base {
+  html {
+    zoom: 0.9;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
